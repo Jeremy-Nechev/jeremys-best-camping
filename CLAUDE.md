@@ -12,14 +12,6 @@ bundler, no linter, and no test suite.
 
 ## Architecture
 
-**Folder-per-page routing.** Every page is a folder containing an `index.html` (e.g.
-`lake-tahoe/index.html`, `southern-california/big-bear-area/index.html`), giving clean URLs on
-Pages. The only exception is the site root `index.html`. Page nesting depth determines the
-relative path back to `assets/`: top-level pages (`camping-checklist/`, `lake-tahoe/`, etc.) use
-`../assets/...`; one level deeper (`southern-california/big-bear-area/`,
-`national-parks/yosemite/`) use `../../assets/...`; the root `index.html` uses `assets/...`. Get
-this wrong and a page silently loses its stylesheet/script.
-
 **No templating — markup is duplicated per page.** There are no includes/partials; the full
 `<header>` (wordmark, mobile toggle, nav with its two dropdown submenus), the hero SVG contour
 background, and the `<footer>` are copy-pasted into every `index.html`, with only the relative
