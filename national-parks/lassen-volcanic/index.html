@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-manzanita-lake">
   <div class="ground-body">
     <h3>Manzanita Lake</h3>
     <p>The main campground, with a store, showers, and kayak rentals on the lake.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Reflection views of the peak at sunrise</li><li>Camp store and laundry on site</li><li>Bear boxes required</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-summit-lake-north">
   <div class="ground-body">
     <h3>Summit Lake North</h3>
     <p>Higher and quieter, right on the water at the center of the park.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Mosquitoes are heavy in early summer</li><li>Swimmable by August</li><li>Trailhead to Echo and Twin Lakes</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-butte-lake">
   <div class="ground-body">
     <h3>Butte Lake</h3>
     <p>Remote northeast corner, reached by a long gravel road. Cinder cone access.</p>
@@ -193,6 +195,39 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Manzanita Lake", href: "#camp-manzanita-lake", lat: 40.5432, lng: -121.5735 },
+    { name: "Summit Lake North", href: "#camp-summit-lake-north", lat: 40.4849, lng: -121.4373 },
+    { name: "Butte Lake", href: "#camp-butte-lake", lat: 40.5763, lng: -121.3123 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

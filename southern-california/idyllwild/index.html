@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-idyllwild-county-park">
   <div class="ground-body">
     <h3>Idyllwild County Park</h3>
     <p>Close to the town, but it still feels secluded. Shaded sites with a variety of hilly and creek areas.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Walk to the village in about 15 minutes</li><li>Nature center at the entrance</li><li>Quiet hours are enforced</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-boulder-basin">
   <div class="ground-body">
     <h3>Boulder Basin</h3>
     <p>High and remote at 7,300 feet, up a rough dirt road. The views are amazing.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>High-clearance vehicle recommended</li><li>No water, so pack everything in</li><li>Coldest sites in the area</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-stone-creek-campground">
   <div class="ground-body">
     <h3>Stone Creek Campground</h3>
     <p>This is a good option if you want a more secluded experience but you don't want to drive all the way to fern valley or boulder basin.</p>
@@ -104,7 +106,7 @@
 
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-fern-basin">
   <div class="ground-body">
     <h3>Fern Basin</h3>
     <p>Shady and quieter than the sites closer to town, this campground is further up the mountain in a valley among cedar and pine trees. Sites on the end of the loop have amazing views of the valley below!</p>
@@ -193,6 +195,40 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Idyllwild County Park", href: "#camp-idyllwild-county-park", lat: 33.7411, lng: -116.7189 },
+    { name: "Boulder Basin", href: "#camp-boulder-basin", lat: 33.7817, lng: -116.7325 },
+    { name: "Stone Creek Campground", href: "#camp-stone-creek-campground", lat: 33.7942, lng: -116.7492 },
+    { name: "Fern Basin", href: "#camp-fern-basin", lat: 33.7742, lng: -116.725 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
 
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-twin-lakes">
   <div class="ground-body">
     <h3>Twin Lakes</h3>
     <p>Right in the Lakes Basin, walking distance to Twin Falls and the trailhead for Panorama Dome.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Closest campground to the village and the Lakes Basin trolley stop</li><li>Some sites sit right on the water</li><li>Fills fast on summer weekends</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-coldwater-campground">
   <div class="ground-body">
     <h3>Coldwater Campground</h3>
     <p>Tucked in the trees above Lake Mary, the trailhead for Duck Pass and the Emerald Lake area.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Quieter than the lakeside campgrounds nearby</li><li>Easy walk to Lake Mary for fishing</li><li>Nights get cold even in July at this elevation</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-sherwin-creek">
   <div class="ground-body">
     <h3>Sherwin Creek</h3>
     <p>A few miles outside the basin, along a creek with more privacy and fewer crowds.</p>
@@ -185,6 +187,39 @@
 </footer>
 
 <script src="../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Twin Lakes", href: "#camp-twin-lakes", lat: 37.6122, lng: -119.0197 },
+    { name: "Coldwater Campground", href: "#camp-coldwater-campground", lat: 37.5978, lng: -119.0344 },
+    { name: "Sherwin Creek", href: "#camp-sherwin-creek", lat: 37.6194, lng: -118.9694 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

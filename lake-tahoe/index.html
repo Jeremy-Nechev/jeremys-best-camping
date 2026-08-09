@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-d-l-bliss-state-park">
   <div class="ground-body">
     <h3>D.L. Bliss State Park</h3>
     <p>West shore, above some of the clearest water on the lake.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Rubicon Trail starts in the park</li><li>Beach sites cost more and are worth it</li><li>Access road is narrow</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-fallen-leaf">
   <div class="ground-body">
     <h3>Fallen Leaf</h3>
     <p>South shore, between Fallen Leaf Lake and Tahoe. Big, shaded, and central.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Bike path to Camp Richardson</li><li>Bear boxes at every site</li><li>Fills every summer weekend</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-nevada-beach">
   <div class="ground-body">
     <h3>Nevada Beach</h3>
     <p>East shore, sites in the pines just off a wide sand beach.</p>
@@ -193,6 +195,39 @@
 </footer>
 
 <script src="../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "D.L. Bliss State Park", href: "#camp-d-l-bliss-state-park", lat: 38.9967, lng: -120.1017 },
+    { name: "Fallen Leaf", href: "#camp-fallen-leaf", lat: 38.9308, lng: -120.0908 },
+    { name: "Nevada Beach", href: "#camp-nevada-beach", lat: 38.9633, lng: -119.9425 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

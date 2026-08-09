@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-pines-campgrounds-lower-upper-north-pines">
   <div class="ground-body">
     <h3>Pines Campgrounds (Lower, Upper & North Pines)</h3>
     <p>The three Valley campgrounds, all pretty much the same: a great location, but very small campsites. Reservations are extremely difficult.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Reservations open on the 15th, five months ahead, and sites go in under a minute</li><li>Upper Pines stays open year-round; Lower and North Pines close for part of the winter</li><li>Shuttle stop inside or near every loop</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-tuolumne-meadows">
   <div class="ground-body">
     <h3>Tuolumne Meadows</h3>
     <p>High country at 8,600 feet. Cooler, quieter, and a completely different park.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Tioga Road opens late, so check status before you drive up</li><li>Afternoon thunderstorms are common</li><li>Best trailhead access in the park</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-wawona">
   <div class="ground-body">
     <h3>Wawona</h3>
     <p>Large, riverfront campsites on the south end of the park. Only five minutes to the Mariposa Grove of Giant Sequoias, but forty five minutes to Yosemite Valley.</p>
@@ -104,7 +106,7 @@
     <ul class="notes"><li>Easier to book than anything in the Valley</li><li>Riverside sites are the ones to want</li><li>Shuttle to Mariposa Grove in summer</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-bridalveil-creek">
   <div class="ground-body">
     <h3>Bridalveil Creek</h3>
     <p>There may be no better view in the world than the one from Glacier Point, and from here it's only 15 minutes away. Also just 20 minutes to Yosemite Valley. Most sites are small, but there are a few big ones.</p>
@@ -112,7 +114,7 @@
     <ul class="notes"><li>Check site size when booking; a few sites are noticeably larger than the rest</li><li>Closest campground to Glacier Point</li><li>Good base for both the Valley and Glacier Point Area</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-summerdale">
   <div class="ground-body">
     <h3>Summerdale</h3>
     <p class="mono">Outside the park</p>
@@ -121,7 +123,7 @@
     <ul class="notes"><li>Good base for the Mariposa Grove, less so for the Valley</li><li>Managed by the Forest Service, not the park</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-the-primitive-four">
   <div class="ground-body">
     <h3>The Primitive Four</h3>
     <p>Porcupine Flat, Yosemite Creek, White Wolf, and Tamarack Flat: four primitive campgrounds to fall back on if the others are full. Yosemite Creek is very remote with big sites and a good chance of scoring one. Porcupine Flat is just off the highway and can feel crowded. White Wolf is the best of the four, with a good location. Tamarack Flat is another option.</p>
@@ -129,7 +131,7 @@
     <ul class="notes"><li>No water at most of these; pack it in</li><li>White Wolf is the best pick if you have a choice</li><li>Good backups when the Valley and Tuolumne are full</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-aspen">
   <div class="ground-body">
     <h3>Aspen</h3>
     <p class="mono">Outside the park</p>
@@ -138,7 +140,7 @@
     <ul class="notes"><li>Best fallback for the Tioga Pass side of the park</li><li>Managed by the Forest Service, not the park</li><li>You can't make reservations ahead of time</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-crane-flat-hodgdon-meadow">
   <div class="ground-body">
     <h3>Crane Flat &amp; Hodgdon Meadow</h3>
     <p>Two campgrounds about 45 minutes from Yosemite Valley. Sites are small with not too much privacy, but they can be a good option for reaching both the Valley and Tuolumne Meadows if other campgrounds are full.</p>
@@ -146,7 +148,7 @@
     <ul class="notes"><li>Hodgdon Meadow keeps some sites open through winter</li><li>Central to both the Valley and Tioga Road</li><li>Book ahead; these fill even though they're not the first choice</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-dimond-o">
   <div class="ground-body">
     <h3>Dimond "O"</h3>
     <p class="mono">Outside the park</p>
@@ -245,6 +247,45 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Pines Campgrounds (Lower, Upper & North Pines)", href: "#camp-pines-campgrounds-lower-upper-north-pines", lat: 37.7385, lng: -119.5678 },
+    { name: "Tuolumne Meadows", href: "#camp-tuolumne-meadows", lat: 37.8742, lng: -119.3546 },
+    { name: "Wawona", href: "#camp-wawona", lat: 37.5325, lng: -119.6555 },
+    { name: "Bridalveil Creek", href: "#camp-bridalveil-creek", lat: 37.6712, lng: -119.6335 },
+    { name: "Summerdale", href: "#camp-summerdale", lat: 37.4785, lng: -119.6335 },
+    { name: "The Primitive Four", href: "#camp-the-primitive-four", lat: 37.8508, lng: -119.6503 },
+    { name: "Aspen", href: "#camp-aspen", lat: 37.953, lng: -119.1256 },
+    { name: "Crane Flat & Hodgdon Meadow", href: "#camp-crane-flat-hodgdon-meadow", lat: 37.766, lng: -119.823 },
+    { name: "Dimond \"O\"", href: "#camp-dimond-o", lat: 37.8228, lng: -119.9328 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-apgar">
   <div class="ground-body">
     <h3>Apgar</h3>
     <p>Largest campground in the park, at the foot of Lake McDonald on the west side.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Walk to the lake and the village</li><li>Shuttle stop for Going-to-the-Sun Road</li><li>Book the day it opens</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-many-glacier">
   <div class="ground-body">
     <h3>Many Glacier</h3>
     <p>The best location in the park and the hardest to get. Trailheads leave from camp.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Sells out within seconds</li><li>Grizzly country, so strict food storage</li><li>Grinnell Glacier trail starts here</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-two-medicine">
   <div class="ground-body">
     <h3>Two Medicine</h3>
     <p>Southeast corner, quieter, with a boat launch and big views of Rising Wolf.</p>
@@ -193,6 +195,39 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Apgar", href: "#camp-apgar", lat: 48.5236, lng: -113.9975 },
+    { name: "Many Glacier", href: "#camp-many-glacier", lat: 48.7959, lng: -113.6578 },
+    { name: "Two Medicine", href: "#camp-two-medicine", lat: 48.4886, lng: -113.3681 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

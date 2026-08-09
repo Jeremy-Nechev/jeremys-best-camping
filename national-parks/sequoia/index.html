@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -81,7 +82,8 @@
     <h2 class="section-title">Where to camp</h2>
     <p class="section-intro">The three park campgrounds below anchor their own small clusters of sites, plus a few quieter National Forest options and a lake with an actual beach.</p>
 
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-lodgepole">
   <div class="ground-body">
     <h3>Lodgepole</h3>
     <p>Central to the giant forest, with a market and the shortest walk to the big trees.</p>
@@ -89,7 +91,7 @@
     <ul class="notes"><li>Shuttle to General Sherman in summer</li><li>Bear activity is high, so use the boxes</li><li>Market and showers nearby</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-sunset">
   <div class="ground-body">
     <h3>Sunset</h3>
     <p>Grant Grove side, big and forested, with easy access to the sequoias. One of three campgrounds clustered together here, alongside Azalea and Crystal Springs.</p>
@@ -97,7 +99,7 @@
     <ul class="notes"><li>Walk to Grant Grove village</li><li>Sunset views over the foothills</li><li>Azalea and Crystal Springs are a short walk up the road if Sunset is full; same village, same amenities</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-moraine">
   <div class="ground-body">
     <h3>Moraine</h3>
     <p>Down in Kings Canyon along the river. Hot in summer, and worth the drive down. Part of the same short cluster as Sentinel and Sheep Creek in Cedar Grove.</p>
@@ -105,7 +107,7 @@
     <ul class="notes"><li>Highway 180 closes in winter</li><li>Riverside sites are the good ones</li><li>Sentinel and Sheep Creek are just up the road, same Cedar Grove cluster, worth checking if Moraine is full</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-upper-stony-creek">
   <div class="ground-body">
     <h3>Upper Stony Creek</h3>
     <p>A small, quiet National Forest campground on Generals Highway, between the two parks and well off the main crowds.</p>
@@ -113,7 +115,7 @@
     <ul class="notes"><li>Run by the Forest Service, not the park, so it's a good overflow when park campgrounds are booked</li><li>Near Stony Creek Village for a quick supply run</li><li>Trailhead access into the Jennie Lakes Wilderness</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-princess">
   <div class="ground-body">
     <h3>Princess</h3>
     <p>Another quieter National Forest option, on Highway 180 near the Hume Lake turnoff.</p>
@@ -121,7 +123,7 @@
     <ul class="notes"><li>Larger than Upper Stony Creek but still far less crowded than the park campgrounds</li><li>Close to Hume Lake for a swim after setting up camp</li><li>Some sites are first-come, so there's a fallback even if reservations are gone</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-hume-lake">
   <div class="ground-body">
     <h3>Hume Lake</h3>
     <p>A reservoir with an actual sand beach, on the National Forest side of the boundary between the two parks.</p>
@@ -210,6 +212,42 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Lodgepole", href: "#camp-lodgepole", lat: 36.6027, lng: -118.7325 },
+    { name: "Sunset", href: "#camp-sunset", lat: 36.7415, lng: -118.9668 },
+    { name: "Moraine", href: "#camp-moraine", lat: 36.7938, lng: -118.6825 },
+    { name: "Upper Stony Creek", href: "#camp-upper-stony-creek", lat: 36.6743, lng: -118.8283 },
+    { name: "Princess", href: "#camp-princess", lat: 36.7213, lng: -118.955 },
+    { name: "Hume Lake", href: "#camp-hume-lake", lat: 36.7908, lng: -118.9078 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -81,7 +82,8 @@
     <h2 class="section-title">Where to camp</h2>
     <p class="section-intro">Mountain campgrounds under oak and pine.</p>
 
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-laguna-campground">
   <div class="ground-body">
     <h3>Laguna Campground</h3>
     <p>Mt Laguna campground is set in a pine forest overlooking a meadow. There are many lakes that you can hike to. The best campsites are in the Meadow Loop, because they overlook the meadow. The most spacious campsites are in the Shady and Sunny loops. This campground is a lot better than its neighbor, Burnt Rancheria, because it is in a more scenic area and there is no road noise.</p>
@@ -89,7 +91,7 @@
     <ul class="notes"><li>Cold at night even in summer</li><li>Big Laguna Trail starts nearby</li><li>Adventure Pass needed for day parking</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-william-heise-county-park">
   <div class="ground-body">
     <h3>William Heise County Park</h3>
     <p>William Heise Campground is in William Heise County Park, only ten minutes from Julian. This campground has it all: spacious campsites, showers, playgrounds, cabin rentals with electricity (about $75) and even 5 miles of trails.</p>
@@ -97,7 +99,7 @@
     <ul class="notes"><li>Camping cabins sleep up to five and come with beds, a table, and a covered porch; bring your own bedding and cook outside</li><li>Cabins book out faster than the tent sites, especially in fall</li><li>Short drive down to Julian for pie and supplies</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-paso-picacho-campground">
   <div class="ground-body">
     <h3>Paso Picacho Campground</h3>
     <p>The higher of the two Cuyamaca Rancho campgrounds, set under conifers right at the Stonewall Peak trailhead. Cooler and shadier than Green Valley down the road.</p>
@@ -105,7 +107,7 @@
     <ul class="notes"><li>Stonewall and Cuyamaca Peak trails both start here</li><li>Shadier and several degrees cooler than Green Valley</li><li>Occasional winter snow closes the road briefly</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-green-valley-campground">
   <div class="ground-body">
     <h3>Green Valley Campground</h3>
     <p>Lower and warmer than Paso Picacho, spread along the Sweetwater River with swimming holes right by the sites.</p>
@@ -113,7 +115,7 @@
     <ul class="notes"><li>Creek runs highest in spring, dry by late summer</li><li>Some sites large enough for trailers and small RVs</li><li>Quieter than Paso Picacho most weekends</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-doane-valley-campground">
   <div class="ground-body">
     <h3>Doane Valley Campground</h3>
     <p>This is the best campground on Palomar Mountain because of the forest location. Palomar Mountain has a unique Sierra Nevada-like atmosphere with pine, fir and cedar trees.</p>
@@ -227,6 +229,41 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Laguna Campground", href: "#camp-laguna-campground", lat: 32.8656, lng: -116.4267 },
+    { name: "William Heise County Park", href: "#camp-william-heise-county-park", lat: 33.0083, lng: -116.5556 },
+    { name: "Paso Picacho Campground", href: "#camp-paso-picacho-campground", lat: 32.9825, lng: -116.5772 },
+    { name: "Green Valley Campground", href: "#camp-green-valley-campground", lat: 32.9497, lng: -116.5758 },
+    { name: "Doane Valley Campground", href: "#camp-doane-valley-campground", lat: 33.2911, lng: -116.8875 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

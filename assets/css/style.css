@@ -191,6 +191,7 @@ h3 { font-size: 1.25rem; letter-spacing: -.015em; }
   border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
   background: var(--mist);
 }
+.site-map-region { height: 320px; margin-bottom: var(--s4); }
 .map-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--lake); border: 2px solid var(--paper); box-shadow: 0 1px 4px rgba(15,31,26,.4); }
 .site-map .leaflet-popup-content-wrapper { border-radius: var(--r); font-family: var(--body); }
 .site-map .leaflet-popup-content { margin: .6rem .9rem; }

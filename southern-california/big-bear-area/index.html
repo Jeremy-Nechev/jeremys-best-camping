@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-serrano">
   <div class="ground-body">
     <h3>Serrano</h3>
     <p>The developed option: flush toilets, showers, and lakefront access. Book early for summer weekends.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>Loops A and B are closest to the lake</li><li>Showers are coin-operated; bring quarters</li><li>Bear boxes at every site</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-hanna-flat">
   <div class="ground-body">
     <h3>Hanna Flat</h3>
     <p>Quieter and more forested, up in the Big Bear backcountry. First-come sites go fast on holiday weekends.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Vault toilets only, no showers</li><li>Nearest water is at the host site</li><li>Cell service is spotty</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-pineknot">
   <div class="ground-body">
     <h3>Pineknot</h3>
     <p>Walking distance to the village trailheads. Good base if you want to hike and eat in town.</p>
@@ -104,7 +106,7 @@
     <ul class="notes"><li>Steep access road; watch trailer clearance</li><li>Shaded most of the day</li><li>Close to Grand View Point trail</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-barton-flats-san-gorgonio">
   <div class="ground-body">
     <h3>Barton Flats / San Gorgonio</h3>
     <p>Not technically Big Bear, but only about 40 minutes down the mountain on Highway 38, these two neighboring campgrounds are a solid overflow option when Big Bear's lakeside sites are booked up or overcrowded.</p>
@@ -193,6 +195,40 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Serrano", href: "#camp-serrano", lat: 34.2647, lng: -116.955 },
+    { name: "Hanna Flat", href: "#camp-hanna-flat", lat: 34.282, lng: -116.9494 },
+    { name: "Pineknot", href: "#camp-pineknot", lat: 34.228, lng: -116.885 },
+    { name: "Barton Flats / San Gorgonio", href: "#camp-barton-flats-san-gorgonio", lat: 34.165, lng: -116.87 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

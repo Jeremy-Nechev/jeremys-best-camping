@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +81,8 @@
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
 
-    <div class="grounds"><article class="ground">
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-jedediah-smith">
   <div class="ground-body">
     <h3>Jedediah Smith</h3>
     <p>Old-growth redwoods right over the campground, along the Smith River in the park's north end.</p>
@@ -88,7 +90,7 @@
     <ul class="notes"><li>River access for swimming right from camp</li><li>Some of the largest trees in the park nearby</li><li>Sites are close together, expect little privacy</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-elk-prairie">
   <div class="ground-body">
     <h3>Elk Prairie</h3>
     <p>Set in a fern-floored redwood grove where Roosevelt elk graze the adjacent meadow most mornings.</p>
@@ -96,7 +98,7 @@
     <ul class="notes"><li>Elk often bed down in the prairie right at dusk</li><li>Good base for the Fern Canyon shuttle</li><li>Keep a safe distance from elk during fall rut</li></ul>
   </div>
 </article>
-<article class="ground">
+<article class="ground" id="camp-gold-bluffs-beach">
   <div class="ground-body">
     <h3>Gold Bluffs Beach</h3>
     <p>The only campground right on the coast, a bluff-backed stretch of sand near the mouth of Fern Canyon.</p>
@@ -193,6 +195,39 @@
 </footer>
 
 <script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Jedediah Smith", href: "#camp-jedediah-smith", lat: 41.7825, lng: -124.0847 },
+    { name: "Elk Prairie", href: "#camp-elk-prairie", lat: 41.3625, lng: -124.0294 },
+    { name: "Gold Bluffs Beach", href: "#camp-gold-bluffs-beach", lat: 41.39, lng: -124.085 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>
