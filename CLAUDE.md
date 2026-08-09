@@ -47,3 +47,5 @@ intended to be replaced with real `<p>` copy and `<img>` tags respectively, not 
 **`README.md` is gitignored** (see `.gitignore`) — it's setup/handoff instructions for the human
 site owner (how to publish to Pages, add a domain, wire up Formspree) and is intentionally not
 tracked or deployed with the site.
+
+Don't use em dashes in writing
