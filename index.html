@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -31,7 +32,7 @@
 <ul class="submenu">
 <li><a href="southern-california/">Southern California</a></li>
 <li><a href="southern-california/big-bear-area/">Big Bear Area</a></li>
-<li><a href="southern-california/san-diego-area/">San Diego Area</a></li>
+<li><a href="southern-california/san-diego-mountains/">San Diego Mountains</a></li>
 <li><a href="southern-california/anza-borrego/">Anza-Borrego</a></li>
 <li><a href="southern-california/idyllwild/">Idyllwild</a></li>
 <li><a href="national-parks/">National Parks</a></li>
@@ -74,6 +75,12 @@
     <h1>Campgrounds worth<br>going to.</h1>
     <p class="lede">I've been to every place on this list myself. All the information you need is here for you to plan your trip!</p>
     <div class="hero-actions"><a class="btn" href="national-parks/">Browse national parks</a> <a class="btn btn-quiet" href="tips-for-beginners/">First time camping?</a></div>
+  </div>
+</section><section class="band band-mist">
+  <div class="wrap">
+    <h2 class="section-title">Regions covered by this site</h2>
+    <p class="section-intro">You can click a pin to jump to the guide for that place.</p>
+    <div id="site-map" class="site-map" aria-label="Map of camping regions covered on this site"></div>
   </div>
 </section><section class="band ">
   <div class="wrap">
@@ -177,6 +184,48 @@
 </footer>
 
 <script src="assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('site-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var REGIONS = [
+    { name: 'Yosemite', href: 'national-parks/yosemite/', lat: 37.8651, lng: -119.5383 },
+    { name: 'Joshua Tree', href: 'national-parks/joshua-tree/', lat: 33.8734, lng: -115.9010 },
+    { name: 'Lassen Volcanic', href: 'national-parks/lassen-volcanic/', lat: 40.4977, lng: -121.4207 },
+    { name: 'Sequoia & Kings Canyon', href: 'national-parks/sequoia/', lat: 36.4864, lng: -118.5658 },
+    { name: 'Glacier', href: 'national-parks/glacier/', lat: 48.7596, lng: -113.7870 },
+    { name: 'Redwood', href: 'national-parks/redwood/', lat: 41.2132, lng: -124.0046 },
+    { name: 'Big Bear Area', href: 'southern-california/big-bear-area/', lat: 34.2439, lng: -116.9114 },
+    { name: 'San Diego Mountains', href: 'southern-california/san-diego-mountains/', lat: 33.0787, lng: -116.6022 },
+    { name: 'Anza-Borrego', href: 'southern-california/anza-borrego/', lat: 33.2582, lng: -116.4004 },
+    { name: 'Idyllwild', href: 'southern-california/idyllwild/', lat: 33.7431, lng: -116.7147 },
+    { name: 'Lake Tahoe', href: 'lake-tahoe/', lat: 39.0968, lng: -120.0324 },
+    { name: 'Mammoth Lakes', href: 'mammoth-lakes/', lat: 37.6485, lng: -118.9721 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  REGIONS.forEach(function (region) {
+    L.marker([region.lat, region.lng], { icon: icon, title: region.name })
+      .addTo(map)
+      .bindPopup('<a href="' + region.href + '">' + region.name + '</a>');
+    bounds.push([region.lat, region.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 </body>
 </html>

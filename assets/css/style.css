@@ -185,6 +185,17 @@ h3 { font-size: 1.25rem; letter-spacing: -.015em; }
 .card-go { position: absolute; right: var(--s3); bottom: var(--s3); color: var(--lake); font-size: 1.1rem; opacity: 0; transition: opacity .18s ease, transform .18s ease; }
 .card:hover .card-go { opacity: 1; transform: translateX(3px); }
 
+/* ---------------------------------------------------------------- map */
+.site-map {
+  height: 460px; margin-top: var(--s4);
+  border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+  background: var(--mist);
+}
+.map-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--lake); border: 2px solid var(--paper); box-shadow: 0 1px 4px rgba(15,31,26,.4); }
+.site-map .leaflet-popup-content-wrapper { border-radius: var(--r); font-family: var(--body); }
+.site-map .leaflet-popup-content { margin: .6rem .9rem; }
+.site-map .leaflet-popup-content a { font-family: var(--display); font-weight: 600; }
+
 /* ---------------------------------------------------------- datastrip */
 .datastrip {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
