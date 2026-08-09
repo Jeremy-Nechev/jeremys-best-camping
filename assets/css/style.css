@@ -223,6 +223,7 @@ h3 { font-size: 1.25rem; letter-spacing: -.015em; }
   content: ""; position: absolute; left: .25rem; top: .68em;
   width: 5px; height: 5px; border-radius: 50%; background: var(--lake);
 }
+.ground-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: var(--s3); }
 
 /* ----------------------------------------------------- gear / recipes */
 .gear-group + .gear-group, .ck-group + .ck-group { margin-top: var(--s5); }
