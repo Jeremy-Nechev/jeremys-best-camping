@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home · Jeremy's Best Camping</title>
-<meta name="description" content="Campground guides for California&#x27;s national parks, Southern California, the Southern Sierra, and Northern California.">
+<meta name="description" content="Campground guides for California&#x27;s national parks, Southern California, and Northern California.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,9 +31,6 @@
 <button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
 <ul class="submenu">
 <li><a href="southern-california/">Southern California</a></li>
-<li><a href="southern-sierra/">Southern Sierra</a></li>
-<li><a href="southern-sierra/trail-of-100-giants/">Trail of 100 Giants</a></li>
-<li><a href="southern-sierra/mountain-home-state-forest/">Mountain Home State Forest</a></li>
 <li><a href="national-parks/">National Parks</a></li>
 <li><a href="national-parks/yosemite/">Yosemite</a></li>
 <li><a href="national-parks/joshua-tree/">Joshua Tree</a></li>
@@ -103,21 +100,12 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="southern-sierra/">
-  <div class="card-body">
-    <p class="kicker">2 regions</p>
-    <h3>Southern Sierra</h3>
-    <p>Giant sequoias closer to LA than Yosemite, and quieter than any of the main park entrances. Trail of 100 Giants and Mountain Home State Forest.</p>
-    <dl class="datastrip"><div class="data-cell"><dt>Regions</dt><dd>2</dd></div><div class="data-cell"><dt>Drive time</dt><dd>~3 hr</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div></dl>
-  </div>
-  <span class="card-go" aria-hidden="true">&rarr;</span>
-</a>
 <a class="card" href="northern-california/">
   <div class="card-body">
-    <p class="kicker">4 regions</p>
+    <p class="kicker">6 regions</p>
     <h3>Northern California</h3>
-    <p>Doesn't fit in either bucket, so it gets its own page. Lake Tahoe, Mammoth Lakes, Mono Lake &amp; June Lake, and Big Sur.</p>
-    <dl class="datastrip"><div class="data-cell"><dt>Regions</dt><dd>4</dd></div><div class="data-cell"><dt>Elevation</dt><dd>Sea level–8,600 ft</dd></div><div class="data-cell"><dt>Booking</dt><dd>6 mo out</dd></div></dl>
+    <p>Doesn't fit in either bucket, so it gets its own page. Lake Tahoe, Mammoth Lakes, Mono Lake &amp; June Lake, Big Sur, and the Southern Sierra sequoia groves.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Regions</dt><dd>6</dd></div><div class="data-cell"><dt>Elevation</dt><dd>Sea level–8,600 ft</dd></div><div class="data-cell"><dt>Booking</dt><dd>Mostly 6 mo out</dd></div></dl>
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a></div>
@@ -174,7 +162,6 @@
     <nav class="footer-nav" aria-label="Footer">
       <div><h3>Destinations</h3><ul>
         <li><a href="southern-california/">Southern California</a></li>
-        <li><a href="southern-sierra/">Southern Sierra</a></li>
         <li><a href="national-parks/">National Parks</a></li>
         <li><a href="northern-california/">Northern California</a></li>
       </ul></div>
@@ -210,12 +197,12 @@
     { name: 'San Diego Mountains', href: 'southern-california/san-diego-mountains/', lat: 33.0787, lng: -116.6022 },
     { name: 'Anza-Borrego', href: 'southern-california/anza-borrego/', lat: 33.2582, lng: -116.4004 },
     { name: 'Idyllwild', href: 'southern-california/idyllwild/', lat: 33.7431, lng: -116.7147 },
-    { name: 'Trail of 100 Giants', href: 'southern-sierra/trail-of-100-giants/', lat: 36.1432, lng: -118.6497 },
-    { name: 'Mountain Home State Forest', href: 'southern-sierra/mountain-home-state-forest/', lat: 36.1912, lng: -118.6301 },
     { name: 'Lake Tahoe', href: 'lake-tahoe/', lat: 39.0968, lng: -120.0324 },
     { name: 'Mammoth Lakes', href: 'mammoth-lakes/', lat: 37.6485, lng: -118.9721 },
     { name: 'Mono Lake & June Lake', href: 'mono-lake-june-lake/', lat: 37.9256, lng: -119.0177 },
-    { name: 'Big Sur', href: 'big-sur/', lat: 36.2704, lng: -121.8081 }
+    { name: 'Big Sur', href: 'big-sur/', lat: 36.2704, lng: -121.8081 },
+    { name: 'Trail of 100 Giants', href: 'trail-of-100-giants/', lat: 36.1432, lng: -118.6497 },
+    { name: 'Mountain Home State Forest', href: 'mountain-home-state-forest/', lat: 36.1912, lng: -118.6301 }
   ];
 
   var map = L.map(mapEl, { scrollWheelZoom: false });
