@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mono Lake &amp; June Lake · Jeremy's Best Camping</title>
+<meta name="description" content="Tufa towers on an ancient inland sea, a quiet lake loop, and campgrounds with far fewer crowds than the Mammoth basin next door.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="../">
+      <span class="wordmark-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
+      </span>
+      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+<li class="nav-item has-menu">
+<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<ul class="submenu">
+<li><a href="../southern-california/">Southern California</a></li>
+<li><a href="../southern-california/big-bear-area/">Big Bear Area</a></li>
+<li><a href="../southern-california/san-diego-mountains/">San Diego Mountains</a></li>
+<li><a href="../southern-california/anza-borrego/">Anza-Borrego</a></li>
+<li><a href="../southern-california/idyllwild/">Idyllwild</a></li>
+<li><a href="../national-parks/">National Parks</a></li>
+<li><a href="../national-parks/yosemite/">Yosemite</a></li>
+<li><a href="../national-parks/joshua-tree/">Joshua Tree</a></li>
+<li><a href="../national-parks/lassen-volcanic/">Lassen Volcanic</a></li>
+<li><a href="../national-parks/sequoia/">Sequoia & Kings Canyon</a></li>
+<li><a href="../national-parks/glacier/">Glacier</a></li>
+<li><a href="../national-parks/redwood/">Redwood</a></li>
+<li><a href="../lake-tahoe/">Lake Tahoe</a></li>
+<li><a href="../mammoth-lakes/">Mammoth Lakes</a></li>
+<li><a href="../mono-lake-june-lake/">Mono Lake &amp; June Lake</a></li>
+<li><a href="../big-sur/">Big Sur</a></li>
+</ul></li>
+<li class="nav-item has-menu">
+<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<ul class="submenu">
+<li><a href="../tips-for-beginners/">Tips for beginners</a></li>
+<li><a href="../camping-checklist/">Camping checklist</a></li>
+<li><a href="../recommended-camping-gear/">Recommended gear</a></li>
+<li><a href="../camping-recipes/">Camping recipes</a></li>
+</ul></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+<g fill="none" stroke="currentColor" stroke-width="1">
+<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
+<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
+<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
+<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
+<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
+<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
+<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
+</g></svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Eastern Sierra</p>
+    <h1>Mono Lake &amp; June Lake</h1>
+    <p class="lede">Tufa towers on an ancient inland sea, a quiet lake loop, and campgrounds with far fewer crowds than the Mammoth basin next door.</p>
+
+  </div>
+</section><section class="band ">
+  <div class="wrap">
+    <h2 class="section-title">Where to camp</h2>
+
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-june-lake">
+  <div class="ground-body">
+    <h3>June Lake Campground</h3>
+    <p>Right on the shore of June Lake itself, an easy walk to the marina and the village.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>7,600 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>28</dd></div><div class="data-cell"><dt>Season</dt><dd>Apr–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>6 mo out</dd></div></dl>
+    <ul class="notes"><li>Small campground, books out early for summer weekends</li><li>Lake access right from camp for kayaking and trout fishing</li><li>Walkable to the June Lake village for coffee and supplies</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.recreation.gov/camping/campgrounds/232448" target="_blank" rel="noopener">Book now</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/june-lake/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article>
+<article class="ground" id="camp-oh-ridge">
+  <div class="ground-body">
+    <h3>Oh! Ridge</h3>
+    <p>The biggest campground on the loop, set on a bench above June Lake's north shore with lake views from most sites.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>7,600 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>148</dd></div><div class="data-cell"><dt>Season</dt><dd>Apr–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>6 mo out</dd></div></dl>
+    <ul class="notes"><li>Best odds of a site if the smaller loop campgrounds are full</li><li>Sandy beach and boat launch a short walk downhill</li><li>Open, sunny sites; not much shade in the afternoon</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.recreation.gov/camping/campgrounds/232449" target="_blank" rel="noopener">Book now</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/oh-ridge/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article>
+<article class="ground" id="camp-lundy-canyon">
+  <div class="ground-body">
+    <h3>Lundy Canyon Campground</h3>
+    <p>A small county campground at the mouth of Lundy Canyon, north of Mono Lake and away from the June Lake crowds.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>7,800 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>28</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>First-come</dd></div></dl>
+    <ul class="notes"><li>No reservations, first-come first-served only</li><li>Closest camp to the Lundy Canyon waterfall trail</li><li>Quiet and dark; a good pick for stargazing at the lake</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.monocounty.ca.gov/parks" target="_blank" rel="noopener">County info</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/lundy-canyon/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article></div>
+  </div>
+</section><section class="band band-mist">
+  <div class="wrap">
+    <h2 class="section-title">Hikes</h2>
+    <p class="section-intro">Short walks around the tufa formations plus longer days up into the canyons above June Lake.</p>
+
+    <div class="grounds"><article class="ground">
+  <div class="ground-body">
+    <h3>South Tufa Trail</h3>
+    <p>A flat loop through Mono Lake's best tufa towers, right at the water's edge.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>1.0 mi loop</dd></div><div class="data-cell"><dt>Gain</dt><dd>Minimal</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Easy</dd></div><div class="data-cell"><dt>Type</dt><dd>Loop</dd></div></dl>
+    <ul class="notes"><li>Small fee area with a self-pay station</li><li>Best light for photos is early morning or just before sunset</li><li>Interpretive signs explain the tufa formations along the way</li></ul>
+  </div>
+</article>
+<article class="ground">
+  <div class="ground-body">
+    <h3>Parker Lake Trail</h3>
+    <p>A gentle climb through aspen and sage to an alpine lake below Parker Peak.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>3.6 mi RT</dd></div><div class="data-cell"><dt>Gain</dt><dd>500 ft</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Moderate</dd></div><div class="data-cell"><dt>Type</dt><dd>Out-and-back</dd></div></dl>
+    <ul class="notes"><li>Aspens turn color early here, often by late September</li><li>Trailhead is on a rough dirt road, high-clearance helps</li><li>Quieter than the trails right around June Lake village</li></ul>
+  </div>
+</article>
+<article class="ground">
+  <div class="ground-body">
+    <h3>Lundy Canyon Waterfalls</h3>
+    <p>A canyon walk past a string of waterfalls and old mine ruins toward Lundy Pass.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>5.0 mi RT</dd></div><div class="data-cell"><dt>Gain</dt><dd>1,000 ft</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Moderate</dd></div><div class="data-cell"><dt>Type</dt><dd>Out-and-back</dd></div></dl>
+    <ul class="notes"><li>Go as far as the falls and turn around, or push on to the pass</li><li>Beaver ponds partway up are a good turnaround for kids</li><li>Can be muddy early season from snowmelt</li></ul>
+  </div>
+</article>
+<article class="ground">
+  <div class="ground-body">
+    <h3>Panum Crater</h3>
+    <p>A short climb up a young volcanic crater with views across Mono Lake and its islands.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>1.0 mi loop</dd></div><div class="data-cell"><dt>Gain</dt><dd>150 ft</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Easy</dd></div><div class="data-cell"><dt>Type</dt><dd>Loop</dd></div></dl>
+    <ul class="notes"><li>Youngest of the Mono craters, rim trail plus a plug trail into the center</li><li>Loose pumice underfoot, wear real shoes</li><li>Good short stop on the way between Mammoth and Mono Lake</li></ul>
+  </div>
+</article></div>
+  </div>
+</section><section class="band ">
+  <div class="wrap">
+    <h2 class="section-title">Things to do</h2>
+
+    <ul class="notes"><li>Take a canoe tour with the Mono Lake Committee to get out among the tufa towers on the water</li><li>Ride the June Mountain gondola in summer for lake and Sierra crest views</li><li>Stop at the Mono Basin Scenic Area Visitor Center for the geology and history of the lake</li><li>Drive the June Lake Loop for lake views without the Mammoth traffic</li><li>Watch the swallows and gulls that nest on the lake's islands in early summer</li></ul>
+  </div>
+</section><section class="band band-mist">
+  <div class="wrap">
+    <h2 class="section-title">Know before you go</h2>
+
+    <div class="prose"><p>Mono Lake sits around 6,400 feet, noticeably lower and warmer than the Mammoth Lakes basin, which makes it a good option when the high country is still under snow in late spring or has turned cold by early fall. June Lake and its campgrounds run closer to 7,600 feet and generally open a little later. The June Lake Loop road is open year-round, but side roads like the one to Parker Lake and Lundy Canyon can hold snow or be washed out early season, so check conditions before you drive up.</p><p>Mono Lake is a closed basin three times saltier than the ocean, so swimming is more of a novelty float than a swim, and there's no fishing in the lake itself, though June Lake and the nearby creeks are stocked. Wind can pick up on the lake by afternoon, which matters if you're canoeing or kayaking. As at Mammoth, cell service is unreliable away from the main highway, and bear boxes are standard at every campground on the loop.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">Jeremy's Best Camping</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div><h3>Destinations</h3><ul>
+        <li><a href="../southern-california/">Southern California</a></li>
+        <li><a href="../national-parks/">National Parks</a></li>
+        <li><a href="../lake-tahoe/">Lake Tahoe</a></li>
+        <li><a href="../mammoth-lakes/">Mammoth Lakes</a></li>
+        <li><a href="../mono-lake-june-lake/">Mono Lake &amp; June Lake</a></li>
+        <li><a href="../big-sur/">Big Sur</a></li>
+      </ul></div>
+      <div><h3>Plan a trip</h3><ul>
+        <li><a href="../tips-for-beginners/">Tips for beginners</a></li>
+        <li><a href="../camping-checklist/">Checklist</a></li>
+        <li><a href="../recommended-camping-gear/">Gear</a></li>
+        <li><a href="../camping-recipes/">Recipes</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; 2026 Jeremy's Best Camping</p>
+  </div>
+</footer>
+
+<script src="../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "June Lake Campground", href: "#camp-june-lake", lat: 37.7783, lng: -119.0755 },
+    { name: "Oh! Ridge", href: "#camp-oh-ridge", lat: 37.7908, lng: -119.0777 },
+    { name: "Lundy Canyon Campground", href: "#camp-lundy-canyon", lat: 38.0231, lng: -119.1949 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
+
+</body>
+</html>
