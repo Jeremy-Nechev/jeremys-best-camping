@@ -2,10 +2,11 @@ title: "Jeremy's Best Camping"
 description: >-
   Campground guides for California's national parks, Southern California, and Northern California.
 
-# Leave baseurl empty for a custom domain or a github.io *user* page (deployed at the domain root).
-# If this deploys as a GitHub Pages *project* page (e.g. https://YOURNAME.github.io/camping/),
-# set this to "/camping" (your repo name, with a leading slash and no trailing slash).
-baseurl: ""
+# This repo deploys as a GitHub Pages *project* page:
+# https://jeremy-nechev.github.io/jeremys-best-camping/
+# If you ever move this to a custom domain or rename the repo to jeremy-nechev.github.io
+# (a user page, served at the domain root), set baseurl back to "" instead.
+baseurl: "/jeremys-best-camping"
 url: ""
 
 exclude:
