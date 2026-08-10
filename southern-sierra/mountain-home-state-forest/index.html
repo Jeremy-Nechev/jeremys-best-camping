@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mountain Home State Forest · Jeremy's Best Camping</title>
+<meta name="description" content="A working state forest with its own giant sequoia grove and first-come camping. No store, no gas, come stocked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="../../">
+      <span class="wordmark-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
+      </span>
+      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+<li class="nav-item has-menu is-active">
+<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<ul class="submenu">
+<li><a href="../../southern-california/">Southern California</a></li>
+<li><a href="../../southern-california/big-bear-area/">Big Bear Area</a></li>
+<li><a href="../../southern-california/san-diego-mountains/">San Diego Mountains</a></li>
+<li><a href="../../southern-california/anza-borrego/">Anza-Borrego</a></li>
+<li><a href="../../southern-california/idyllwild/">Idyllwild</a></li>
+<li><a href="../../southern-sierra/">Southern Sierra</a></li>
+<li><a href="../../southern-sierra/trail-of-100-giants/">Trail of 100 Giants</a></li>
+<li><a href="../../southern-sierra/mountain-home-state-forest/">Mountain Home State Forest</a></li>
+<li><a href="../../national-parks/">National Parks</a></li>
+<li><a href="../../national-parks/yosemite/">Yosemite</a></li>
+<li><a href="../../national-parks/joshua-tree/">Joshua Tree</a></li>
+<li><a href="../../national-parks/lassen-volcanic/">Lassen Volcanic</a></li>
+<li><a href="../../national-parks/sequoia/">Sequoia & Kings Canyon</a></li>
+<li><a href="../../national-parks/glacier/">Glacier</a></li>
+<li><a href="../../national-parks/redwood/">Redwood</a></li>
+<li><a href="../../lake-tahoe/">Lake Tahoe</a></li>
+<li><a href="../../mammoth-lakes/">Mammoth Lakes</a></li>
+<li><a href="../../mono-lake-june-lake/">Mono Lake &amp; June Lake</a></li>
+<li><a href="../../big-sur/">Big Sur</a></li>
+</ul></li>
+<li class="nav-item has-menu">
+<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<ul class="submenu">
+<li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
+<li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
+<li><a href="../../camping-checklist/">Camping checklist</a></li>
+<li><a href="../../recommended-camping-gear/">Recommended gear</a></li>
+<li><a href="../../camping-recipes/">Camping recipes</a></li>
+</ul></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+<g fill="none" stroke="currentColor" stroke-width="1">
+<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
+<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
+<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
+<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
+<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
+<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
+<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
+</g></svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Tulare County</p>
+    <h1>Mountain Home State Forest</h1>
+    <p class="lede">A working demonstration forest above Springville, with its own grove of giant sequoias and a handful of first-come campgrounds. There's no store, no gas, and barely any cell service once you're in, so bring what you need.</p>
+
+  </div>
+</section><section class="band ">
+  <div class="wrap">
+    <h2 class="section-title">Where to camp</h2>
+
+    <div id="campground-map" class="site-map site-map-region" aria-label="Map of campgrounds on this page"></div>
+    <div class="grounds"><article class="ground" id="camp-shake-camp">
+  <div class="ground-body">
+    <h3>Shake Camp</h3>
+    <p>The entrance-area campground, near the equestrian staging area and the old fire lookout. A good base for the whole forest.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>6,850 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>15</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>First-come</dd></div></dl>
+    <ul class="notes"><li>Closest camp to the pack station and trailhead parking</li><li>Vault toilets, no showers</li><li>Popular with horse packers, expect trailers</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.fire.ca.gov/programs/resource-management/resource-protection-improvement/demonstration-state-forests/mountain-home-demonstration-state-forest/" target="_blank" rel="noopener">Forest info</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/shake-camp/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article>
+<article class="ground" id="camp-hedrick-pond">
+  <div class="ground-body">
+    <h3>Hedrick Pond</h3>
+    <p>Small and shaded, right next to a stocked pond. An easy pick for families who want water within sight of the tent.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>6,900 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>10</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>First-come</dd></div></dl>
+    <ul class="notes"><li>Pond is stocked and an easy walk from every site</li><li>No swimming, fishing only</li><li>Fills first on holiday weekends despite the small size</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.fire.ca.gov/programs/resource-management/resource-protection-improvement/demonstration-state-forests/mountain-home-demonstration-state-forest/" target="_blank" rel="noopener">Forest info</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/hedrick-pond/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article>
+<article class="ground" id="camp-moses-gulch">
+  <div class="ground-body">
+    <h3>Moses Gulch</h3>
+    <p>Creekside sites near an old one-room schoolhouse site, deeper into the forest and quieter than the entrance campgrounds.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>5,400 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>18</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>First-come</dd></div></dl>
+    <ul class="notes"><li>Lowest, warmest campground in the forest</li><li>Creek access right from most sites</li><li>Narrower access road than Shake Camp or Hedrick Pond</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.fire.ca.gov/programs/resource-management/resource-protection-improvement/demonstration-state-forests/mountain-home-demonstration-state-forest/" target="_blank" rel="noopener">Forest info</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/moses-gulch/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article>
+<article class="ground" id="camp-sunset-point">
+  <div class="ground-body">
+    <h3>Sunset Point</h3>
+    <p>The most scenic sites in the forest, up on a ridge with a real view. Small and worth booking your arrival time around.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Elevation</dt><dd>6,950 ft</dd></div><div class="data-cell"><dt>Sites</dt><dd>8</dd></div><div class="data-cell"><dt>Season</dt><dd>May–Oct</dd></div><div class="data-cell"><dt>Reserve</dt><dd>First-come</dd></div></dl>
+    <ul class="notes"><li>Best sunset view of any campground in this guide</li><li>Smallest campground here, arrive early</li><li>No potable water, haul your own</li></ul>
+    <div class="ground-links"><a class="btn btn-quiet btn-sm" href="https://www.fire.ca.gov/programs/resource-management/resource-protection-improvement/demonstration-state-forests/mountain-home-demonstration-state-forest/" target="_blank" rel="noopener">Forest info</a> <a class="btn btn-quiet btn-sm" href="https://www.campsitephotos.com/campground/ca/sunset-point/" target="_blank" rel="noopener">Campsite photos</a></div>
+  </div>
+</article></div>
+  </div>
+</section><section class="band band-mist">
+  <div class="wrap">
+    <h2 class="section-title">Hikes</h2>
+    <p class="section-intro">A short grove walk near the entrance, and a longer option if you want to see more of the forest.</p>
+
+    <div class="grounds"><article class="ground">
+  <div class="ground-body">
+    <h3>Mountain Home Nature Trail</h3>
+    <p>A short interpretive loop through the forest's namesake sequoia grove, starting near the ranger station.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>1 mi loop</dd></div><div class="data-cell"><dt>Gain</dt><dd>150 ft</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Easy</dd></div><div class="data-cell"><dt>Type</dt><dd>Loop</dd></div></dl>
+    <ul class="notes"><li>Numbered posts match a trail guide from the ranger station</li><li>Shaded the entire way</li><li>Good option for young kids</li></ul>
+  </div>
+</article>
+<article class="ground">
+  <div class="ground-body">
+    <h3>Methuselah Group Trail</h3>
+    <p>A longer walk out to a cluster of the forest's oldest and largest sequoias, past the crowd that stops at the nature trail.</p>
+    <dl class="datastrip"><div class="data-cell"><dt>Distance</dt><dd>2.5 mi RT</dd></div><div class="data-cell"><dt>Gain</dt><dd>400 ft</dd></div><div class="data-cell"><dt>Difficulty</dt><dd>Moderate</dd></div><div class="data-cell"><dt>Type</dt><dd>Out-and-back</dd></div></dl>
+    <ul class="notes"><li>Quiet even on busy weekends</li><li>Trail can be muddy early in the season</li><li>Bring water, none available along the way</li></ul>
+  </div>
+</article></div>
+  </div>
+</section><section class="band ">
+  <div class="wrap">
+    <h2 class="section-title">Things to do</h2>
+
+    <ul class="notes"><li>Fish or picnic at Hedrick Pond</li><li>Ride or pack in from the Shake Camp equestrian staging area, popular with horse packers heading into the adjacent wilderness</li><li>Stargaze from Sunset Point; there's no light pollution for miles</li><li>Day-trip to adjacent Balch Park, a Tulare County park with its own grove and swimming spot</li><li>Cool off at a swimming hole on the Tule River near Camp Nelson, on the drive up</li></ul>
+  </div>
+</section><section class="band band-mist">
+  <div class="wrap">
+    <h2 class="section-title">Know before you go</h2>
+
+    <div class="prose"><p><strong>There is no store, restaurant, or gas station inside Mountain Home.</strong> Stock up before you turn off the highway, either in Springville, about 45 minutes down the mountain via Bear Creek and Balch Park Road, or at the small store and lodge in Ponderosa, about 30 minutes away on Highway 190. Cell service inside the forest is unreliable to nonexistent, don't count on it.</p><p>Bear Creek Road and Balch Park Road are steep, narrow, and switchback heavily in places; they're not recommended for long trailers or large RVs, and both close with the first significant snow, usually by November. This is a working demonstration forest managed by CAL FIRE, so expect the occasional logging truck or active harvest area, and stay out of any signed closure.</p><p>Some campgrounds have potable water spigots, but not all, and not every year, bring backup water regardless of which one you book. Campfire and stove restrictions are common in late summer, check current conditions before you go.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">Jeremy's Best Camping</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div><h3>Destinations</h3><ul>
+        <li><a href="../../southern-california/">Southern California</a></li>
+        <li><a href="../../southern-sierra/">Southern Sierra</a></li>
+        <li><a href="../../national-parks/">National Parks</a></li>
+        <li><a href="../../lake-tahoe/">Lake Tahoe</a></li>
+        <li><a href="../../mammoth-lakes/">Mammoth Lakes</a></li>
+        <li><a href="../../mono-lake-june-lake/">Mono Lake &amp; June Lake</a></li>
+        <li><a href="../../big-sur/">Big Sur</a></li>
+      </ul></div>
+      <div><h3>Plan a trip</h3><ul>
+        <li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
+        <li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
+        <li><a href="../../camping-checklist/">Checklist</a></li>
+        <li><a href="../../recommended-camping-gear/">Gear</a></li>
+        <li><a href="../../camping-recipes/">Recipes</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; 2026 Jeremy's Best Camping</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/nav.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('campground-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var CAMPGROUNDS = [
+    { name: "Shake Camp", href: "#camp-shake-camp", lat: 36.1929, lng: -118.6349 },
+    { name: "Hedrick Pond", href: "#camp-hedrick-pond", lat: 36.1912, lng: -118.6301 },
+    { name: "Moses Gulch", href: "#camp-moses-gulch", lat: 36.1774, lng: -118.6187 },
+    { name: "Sunset Point", href: "#camp-sunset-point", lat: 36.1857, lng: -118.6408 }
+  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  CAMPGROUNDS.forEach(function (camp) {
+    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
+      .addTo(map)
+      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
+    bounds.push([camp.lat, camp.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>
+
+</body>
+</html>
