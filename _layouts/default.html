@@ -16,8 +16,9 @@
 
 {% include header.html %}
 
-{% assign weather_lat = page.weather_lat | default: page.map_markers[0].lat %}
+{% unless page.no_weather %}{% assign weather_lat = page.weather_lat | default: page.map_markers[0].lat %}
 {% assign weather_lng = page.weather_lng | default: page.map_markers[0].lng %}
+{% endunless %}
 
 <main id="main">
 {% include hero.html %}
