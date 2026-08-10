@@ -16,15 +16,20 @@
 
 {% include header.html %}
 
+{% assign weather_lat = page.weather_lat | default: page.map_markers[0].lat %}
+{% assign weather_lng = page.weather_lng | default: page.map_markers[0].lng %}
+
 <main id="main">
 {% include hero.html %}
-{{ content }}
+{% if weather_lat and weather_lng %}{% include weather-widget.html lat=weather_lat lng=weather_lng %}
+{% endif %}{{ content }}
 </main>
 
 {% include footer.html %}
 
 <script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
-{% if page.map_markers %}<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+{% if weather_lat and weather_lng %}<script src="{{ '/assets/js/weather.js' | relative_url }}"></script>
+{% endif %}{% if page.map_markers %}<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 {% include leaflet-map.html %}
 {% endif %}
 </body>

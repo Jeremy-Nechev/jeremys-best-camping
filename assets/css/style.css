@@ -185,6 +185,30 @@ h3 { font-size: 1.25rem; letter-spacing: -.015em; }
 .card-go { position: absolute; right: var(--s3); bottom: var(--s3); color: var(--lake); font-size: 1.1rem; opacity: 0; transition: opacity .18s ease, transform .18s ease; }
 .card:hover .card-go { opacity: 1; transform: translateX(3px); }
 
+/* ------------------------------------------------------------- weather */
+/* Populated client-side by assets/js/weather.js from the free National
+   Weather Service API (US-only, no key), keyed off the coordinates the
+   layout passes in via `weather_lat`/`weather_lng` or the page's first
+   map marker. Starts as the loading state below and gets its innerHTML
+   replaced once the forecast comes back (or swapped for a fallback link
+   on failure). */
+.weather-widget-wrap { padding-top: var(--s3); }
+.weather-widget {
+  max-width: 640px; margin: 0 auto;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--paper); padding: var(--s2) var(--s3);
+}
+.weather-widget .weather-status { margin: 0; color: var(--stone); }
+.weather-current { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--s2); }
+.weather-temp { font-family: var(--mono); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+.weather-desc { color: var(--stone); }
+.weather-link { margin-left: auto; font-size: .88rem; white-space: nowrap; }
+.weather-meta {
+  margin: .5rem 0 0; display: flex; flex-wrap: wrap; gap: .3rem 1rem;
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--stone);
+}
+
 /* ---------------------------------------------------------------- map */
 .site-map {
   height: 460px; margin-top: var(--s4);

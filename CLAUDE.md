@@ -83,6 +83,18 @@ site-map-region" ...></div>` (or, on the homepage only, `id="site-map"` without
 does the rest. `href` is either a same-page anchor (`#camp-slug`, most pages) or a site-root path
 (the homepage's map links out to other pages).
 
+**Weather widget.** `_layouts/default.html` renders a live current-conditions widget right under
+the hero on any page that resolves a lat/lng: either explicit `weather_lat`/`weather_lng` front
+matter, or (the common case) the first entry in `map_markers`, so most destination pages get it
+for free with no per-page edits. `_includes/weather-widget.html` renders the loading-state
+placeholder server-side; `assets/js/weather.js` fetches the free, keyless National Weather
+Service API (`api.weather.gov`, US-only, which fits since every destination is in California) and
+swaps in the temperature/forecast, or a fallback link to weather.gov on failure. Pages with
+neither `map_markers` nor an explicit `weather_lat`/`weather_lng` simply don't render the widget
+or load the script. This covers live conditions; it does not cover fire-road or campground
+closures; those are known ahead of time and belong as a manually-written note in the page's "Know
+before you go" prose instead of an automated feed.
+
 **Internal links use `{{ site.baseurl }}`.** Every internal `href` in page content and in
 `map_markers` is written as a site-root-relative path (e.g. `{{ site.baseurl }}/national-parks/
 yosemite/`) rather than the old `../`-counted relative paths, so pages can be moved without
