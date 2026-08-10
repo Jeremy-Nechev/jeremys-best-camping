@@ -190,6 +190,11 @@ h3 { font-size: 1.25rem; letter-spacing: -.015em; }
   height: 460px; margin-top: var(--s4);
   border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
   background: var(--mist);
+  /* Leaflet's internal panes/controls use z-index up to 1000, which otherwise
+     escapes into the page's stacking context and floats above the sticky
+     header's nav dropdowns (z-index 50). Isolating here contains Leaflet's
+     stacking to the map itself. */
+  position: relative; isolation: isolate; z-index: 0;
 }
 .site-map-region { height: 320px; margin-bottom: var(--s4); }
 .map-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--lake); border: 2px solid var(--paper); box-shadow: 0 1px 4px rgba(15,31,26,.4); }
