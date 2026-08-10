@@ -5,8 +5,8 @@ description: >-
 # Leave baseurl empty for a custom domain or a github.io *user* page (deployed at the domain root).
 # If this deploys as a GitHub Pages *project* page (e.g. https://YOURNAME.github.io/camping/),
 # set this to "/camping" (your repo name, with a leading slash and no trailing slash).
-baseurl: ""
-url: ""
+baseurl: "jeremys-best-camping"
+url: "https://jeremy-nechev.github.io/jeremys-best-camping/"
 
 exclude:
   - README.md
