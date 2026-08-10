@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">{{ site.title }}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div><h3>Destinations</h3><ul>
+{% for item in site.data.nav.destinations %}        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+{% endfor %}      </ul></div>
+      <div><h3>Plan a trip</h3><ul>
+{% for item in site.data.nav.plan %}        <li><a href="{{ item.url | relative_url }}">{{ item.footer_title | default: item.title }}</a></li>
+{% endfor %}      </ul></div>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </div>
+</footer>

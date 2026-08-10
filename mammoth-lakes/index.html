@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mammoth Lakes · Jeremy's Best Camping</title>
-<meta name="description" content="Alpine lakes, granite peaks, and a basin full of campgrounds within a few minutes of each other.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../southern-california/">Southern California</a></li>
-<li><a href="../national-parks/">National Parks</a></li>
-<li><a href="../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../camping-checklist/">Camping checklist</a></li>
-<li><a href="../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Eastern Sierra</p>
-    <h1>Mammoth Lakes</h1>
-    <p class="lede">Alpine lakes, granite peaks, and a basin full of campgrounds within a few minutes of each other.</p>
-
-  </div>
-</section><section class="band ">
+---
+layout: default
+title: "Mammoth Lakes"
+description: "Alpine lakes, granite peaks, and a basin full of campgrounds within a few minutes of each other."
+eyebrow: "Eastern Sierra"
+hero_title: "Mammoth Lakes"
+lede: "Alpine lakes, granite peaks, and a basin full of campgrounds within a few minutes of each other."
+section: destinations
+map_markers:
+  - name: "Twin Lakes"
+    href: "#camp-twin-lakes"
+    lat: 37.6161
+    lng: -119.0066
+  - name: "Coldwater Campground"
+    href: "#camp-coldwater-campground"
+    lat: 37.5983
+    lng: -118.9954
+  - name: "Sherwin Creek"
+    href: "#camp-sherwin-creek"
+    lat: 37.6297
+    lng: -118.9373
+---
+<section class="band ">
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
 
@@ -150,67 +104,3 @@
     <div class="prose"><p>Most campgrounds in the Lakes Basin sit between 8,600 and 9,000 feet, so expect cold nights year-round and afternoon thunderstorms most summer afternoons. The campground season generally runs June through September; snow can close roads into the basin well into June some years. Devils Postpile and the Rainbow Falls trailhead require the mandatory shuttle bus from Mammoth Mountain Adventure Center during the day in summer, with your own car only allowed early morning or evening.</p><p>Black bears are active throughout the area, and bear boxes are standard at every campground. The altitude catches people out more than the mileage does; give yourself a day to acclimate before a big hike like Duck Pass. Cell service is spotty once you're in the basin itself, so plan meeting points and download maps ahead of time.</p></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../southern-california/">Southern California</a></li>
-        <li><a href="../national-parks/">National Parks</a></li>
-        <li><a href="../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../camping-checklist/">Checklist</a></li>
-        <li><a href="../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../assets/js/nav.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script>
-(function () {
-  var mapEl = document.getElementById('campground-map');
-  if (!mapEl || typeof L === 'undefined') return;
-
-  var CAMPGROUNDS = [
-    { name: "Twin Lakes", href: "#camp-twin-lakes", lat: 37.6161, lng: -119.0066 },
-    { name: "Coldwater Campground", href: "#camp-coldwater-campground", lat: 37.5983, lng: -118.9954 },
-    { name: "Sherwin Creek", href: "#camp-sherwin-creek", lat: 37.6297, lng: -118.9373 }
-  ];
-
-  var map = L.map(mapEl, { scrollWheelZoom: false });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 17,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
-  var bounds = [];
-  CAMPGROUNDS.forEach(function (camp) {
-    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
-      .addTo(map)
-      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
-    bounds.push([camp.lat, camp.lng]);
-  });
-  map.fitBounds(bounds, { padding: [28, 28] });
-
-  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
-  // hijack the page scroll while they're scrolling past it.
-  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
-})();
-</script>
-
-</body>
-</html>

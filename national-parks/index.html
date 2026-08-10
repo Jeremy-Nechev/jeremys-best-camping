@@ -1,75 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>National Parks · Jeremy's Best Camping</title>
-<meta name="description" content="Camping guides for Yosemite, Joshua Tree, Lassen Volcanic, Sequoia, Glacier, and Redwood.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../southern-california/">Southern California</a></li>
-<li><a href="../national-parks/">National Parks</a></li>
-<li><a href="../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../camping-checklist/">Camping checklist</a></li>
-<li><a href="../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Region</p>
-    <h1>National Parks</h1>
-    <p class="lede">Six parks with great camping and enough to do that you'll want more than a weekend. Each page covers which campgrounds to target and exactly when reservations open.</p>
-    
-  </div>
-</section><section class="band ">
+---
+layout: default
+title: "National Parks"
+description: "Camping guides for Yosemite, Joshua Tree, Lassen Volcanic, Sequoia, Glacier, and Redwood."
+eyebrow: "Region"
+hero_title: "National Parks"
+lede: "Six parks with great camping and enough to do that you'll want more than a weekend. Each page covers which campgrounds to target and exactly when reservations open."
+section: destinations
+---
+<section class="band ">
   <div class="wrap">
     <h2 class="section-title">The parks</h2>
     
-    <div class="grid grid-4"><a class="card" href="yosemite/">
+    <div class="grid grid-4"><a class="card" href="{{ site.baseurl }}/national-parks/yosemite/">
   <div class="card-body">
     <p class="kicker">California</p>
     <h3>Yosemite</h3>
@@ -78,7 +20,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="joshua-tree/">
+<a class="card" href="{{ site.baseurl }}/national-parks/joshua-tree/">
   <div class="card-body">
     <p class="kicker">California</p>
     <h3>Joshua Tree</h3>
@@ -87,7 +29,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="lassen-volcanic/">
+<a class="card" href="{{ site.baseurl }}/national-parks/lassen-volcanic/">
   <div class="card-body">
     <p class="kicker">California</p>
     <h3>Lassen Volcanic</h3>
@@ -96,7 +38,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="sequoia/">
+<a class="card" href="{{ site.baseurl }}/national-parks/sequoia/">
   <div class="card-body">
     <p class="kicker">California</p>
     <h3>Sequoia &amp; Kings Canyon</h3>
@@ -105,7 +47,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="glacier/">
+<a class="card" href="{{ site.baseurl }}/national-parks/glacier/">
   <div class="card-body">
     <p class="kicker">Montana</p>
     <h3>Glacier</h3>
@@ -114,7 +56,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="redwood/">
+<a class="card" href="{{ site.baseurl }}/national-parks/redwood/">
   <div class="card-body">
     <p class="kicker">California</p>
     <h3>Redwood</h3>
@@ -131,34 +73,3 @@
     <div class="prose"><p>All five parks book through recreation.gov, and all five run on the same basic rule: reservations open exactly five or six months before the arrival date, at 7 a.m. Pacific time, and the popular loops go in minutes. Create an account ahead of time, have a couple of campground and site numbers picked out in advance, and be logged in and ready a few minutes early.</p><p>If you miss the release, don't give up. Cancellations post throughout the season, and checking back a few times a week, especially a week or two before your dates, turns up real openings. First-come, first-served campgrounds and partial-reservation sites exist in every park too; they're a good backup plan or a good option if your trip is flexible enough to travel midweek.</p><p>Families should also budget extra time for the drive: mountain roads into these parks are winding, and posted travel times can run long with kids who need stops. Building in a buffer before your campsite check-in window avoids a stressful first evening.</p></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../southern-california/">Southern California</a></li>
-        <li><a href="../national-parks/">National Parks</a></li>
-        <li><a href="../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../camping-checklist/">Checklist</a></li>
-        <li><a href="../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../assets/js/nav.js"></script>
-
-</body>
-</html>

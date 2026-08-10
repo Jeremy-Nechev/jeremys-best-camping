@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} · {{ site.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{% if page.map_markers %}<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+{% endif %}<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+{% include header.html %}
+
+<main id="main">
+{% include hero.html %}
+{{ content }}
+</main>
+
+{% include footer.html %}
+
+<script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+{% if page.map_markers %}<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+{% include leaflet-map.html %}
+{% endif %}
+</body>
+</html>

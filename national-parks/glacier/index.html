@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glacier · Jeremy's Best Camping</title>
-<meta name="description" content="The one long-haul trip on the list, and the one people come back from changed.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../../southern-california/">Southern California</a></li>
-<li><a href="../../national-parks/">National Parks</a></li>
-<li><a href="../../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../../camping-checklist/">Camping checklist</a></li>
-<li><a href="../../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Montana</p>
-    <h1>Glacier</h1>
-    <p class="lede">The one long-haul trip on the list, and the one people come back from changed.</p>
-    
-  </div>
-</section><section class="band ">
+---
+layout: default
+title: "Glacier"
+description: "The one long-haul trip on the list, and the one people come back from changed."
+eyebrow: "Montana"
+hero_title: "Glacier"
+lede: "The one long-haul trip on the list, and the one people come back from changed."
+section: destinations
+map_markers:
+  - name: "Apgar"
+    href: "#camp-apgar"
+    lat: 48.5236
+    lng: -113.9975
+  - name: "Many Glacier"
+    href: "#camp-many-glacier"
+    lat: 48.7959
+    lng: -113.6578
+  - name: "Two Medicine"
+    href: "#camp-two-medicine"
+    lat: 48.4886
+    lng: -113.3681
+---
+<section class="band ">
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     
@@ -158,67 +112,3 @@
     <div class="prose"><p>Entry is $35 per vehicle for seven days, and a separate vehicle reservation is required for the Going-to-the-Sun Road corridor and the Many Glacier and Two Medicine areas from roughly late spring through early fall; book both the moment your travel dates are set. The road over Logan Pass is usually only fully open from mid-June to mid-October, weather depending.</p><p>This is serious grizzly and black bear country. Carry bear spray on every hike, know how to use it before you need it, and store all food and scented items in the metal lockers provided at every campground. Weather changes fast at elevation, with snow possible even in July at Logan Pass. Cell service is minimal to nonexistent through most of the park, including at Many Glacier.</p></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../../southern-california/">Southern California</a></li>
-        <li><a href="../../national-parks/">National Parks</a></li>
-        <li><a href="../../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../../camping-checklist/">Checklist</a></li>
-        <li><a href="../../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../../assets/js/nav.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script>
-(function () {
-  var mapEl = document.getElementById('campground-map');
-  if (!mapEl || typeof L === 'undefined') return;
-
-  var CAMPGROUNDS = [
-    { name: "Apgar", href: "#camp-apgar", lat: 48.5236, lng: -113.9975 },
-    { name: "Many Glacier", href: "#camp-many-glacier", lat: 48.7959, lng: -113.6578 },
-    { name: "Two Medicine", href: "#camp-two-medicine", lat: 48.4886, lng: -113.3681 }
-  ];
-
-  var map = L.map(mapEl, { scrollWheelZoom: false });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 17,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
-  var bounds = [];
-  CAMPGROUNDS.forEach(function (camp) {
-    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
-      .addTo(map)
-      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
-    bounds.push([camp.lat, camp.lng]);
-  });
-  map.fitBounds(bounds, { padding: [28, 28] });
-
-  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
-  // hijack the page scroll while they're scrolling past it.
-  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
-})();
-</script>
-
-</body>
-</html>

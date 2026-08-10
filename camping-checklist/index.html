@@ -1,71 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Camping Checklist · Jeremy's Best Camping</title>
-<meta name="description" content="An interactive packing checklist that remembers what you&#x27;ve packed.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../southern-california/">Southern California</a></li>
-<li><a href="../national-parks/">National Parks</a></li>
-<li><a href="../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../camping-checklist/">Camping checklist</a></li>
-<li><a href="../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Interactive</p>
-    <h1>Packing checklist</h1>
-    <p class="lede">Tick things off as they go in the car. Your progress saves in this browser, so you can come back to it.</p>
-    
-  </div>
-</section><section class="band">
+---
+layout: default
+title: "Camping Checklist"
+description: "An interactive packing checklist that remembers what you've packed."
+eyebrow: "Interactive"
+hero_title: "Packing checklist"
+lede: "Tick things off as they go in the car. Your progress saves in this browser, so you can come back to it."
+section: plan
+---
+<section class="band">
   <div class="wrap">
     <div class="ck-status">
       <div class="ck-meter"><span id="ck-bar"></span></div>
@@ -75,34 +17,6 @@
     <div class="ck-group"><h2 class="group-title">Shelter & sleep</h2><ul class="checklist"><li><label><input type="checkbox" data-key="c0-0"><span class="box" aria-hidden="true"></span><span class="ck-text">Tent</span></label></li><li><label><input type="checkbox" data-key="c0-1"><span class="box" aria-hidden="true"></span><span class="ck-text">Footprint</span></label></li><li><label><input type="checkbox" data-key="c0-2"><span class="box" aria-hidden="true"></span><span class="ck-text">Stakes and mallet</span></label></li><li><label><input type="checkbox" data-key="c0-3"><span class="box" aria-hidden="true"></span><span class="ck-text">Sleeping bag</span></label></li><li><label><input type="checkbox" data-key="c0-4"><span class="box" aria-hidden="true"></span><span class="ck-text">Sleeping pad</span></label></li><li><label><input type="checkbox" data-key="c0-5"><span class="box" aria-hidden="true"></span><span class="ck-text">Pillow</span></label></li></ul></div><div class="ck-group"><h2 class="group-title">Kitchen</h2><ul class="checklist"><li><label><input type="checkbox" data-key="c1-0"><span class="box" aria-hidden="true"></span><span class="ck-text">Stove</span></label></li><li><label><input type="checkbox" data-key="c1-1"><span class="box" aria-hidden="true"></span><span class="ck-text">Fuel</span></label></li><li><label><input type="checkbox" data-key="c1-2"><span class="box" aria-hidden="true"></span><span class="ck-text">Lighter and matches</span></label></li><li><label><input type="checkbox" data-key="c1-3"><span class="box" aria-hidden="true"></span><span class="ck-text">Cookware</span></label></li><li><label><input type="checkbox" data-key="c1-4"><span class="box" aria-hidden="true"></span><span class="ck-text">Plates and utensils</span></label></li><li><label><input type="checkbox" data-key="c1-5"><span class="box" aria-hidden="true"></span><span class="ck-text">Cooler and ice</span></label></li><li><label><input type="checkbox" data-key="c1-6"><span class="box" aria-hidden="true"></span><span class="ck-text">Water containers</span></label></li><li><label><input type="checkbox" data-key="c1-7"><span class="box" aria-hidden="true"></span><span class="ck-text">Trash bags</span></label></li><li><label><input type="checkbox" data-key="c1-8"><span class="box" aria-hidden="true"></span><span class="ck-text">Dish soap and sponge</span></label></li></ul></div><div class="ck-group"><h2 class="group-title">Clothing</h2><ul class="checklist"><li><label><input type="checkbox" data-key="c2-0"><span class="box" aria-hidden="true"></span><span class="ck-text">Insulating layer</span></label></li><li><label><input type="checkbox" data-key="c2-1"><span class="box" aria-hidden="true"></span><span class="ck-text">Rain shell</span></label></li><li><label><input type="checkbox" data-key="c2-2"><span class="box" aria-hidden="true"></span><span class="ck-text">Extra socks</span></label></li><li><label><input type="checkbox" data-key="c2-3"><span class="box" aria-hidden="true"></span><span class="ck-text">Hat</span></label></li><li><label><input type="checkbox" data-key="c2-4"><span class="box" aria-hidden="true"></span><span class="ck-text">Camp shoes</span></label></li><li><label><input type="checkbox" data-key="c2-5"><span class="box" aria-hidden="true"></span><span class="ck-text">Swimsuit</span></label></li></ul></div><div class="ck-group"><h2 class="group-title">Tools & safety</h2><ul class="checklist"><li><label><input type="checkbox" data-key="c3-0"><span class="box" aria-hidden="true"></span><span class="ck-text">Headlamp</span></label></li><li><label><input type="checkbox" data-key="c3-1"><span class="box" aria-hidden="true"></span><span class="ck-text">Extra batteries</span></label></li><li><label><input type="checkbox" data-key="c3-2"><span class="box" aria-hidden="true"></span><span class="ck-text">First aid kit</span></label></li><li><label><input type="checkbox" data-key="c3-3"><span class="box" aria-hidden="true"></span><span class="ck-text">Multi-tool</span></label></li><li><label><input type="checkbox" data-key="c3-4"><span class="box" aria-hidden="true"></span><span class="ck-text">Map</span></label></li><li><label><input type="checkbox" data-key="c3-5"><span class="box" aria-hidden="true"></span><span class="ck-text">Sunscreen</span></label></li><li><label><input type="checkbox" data-key="c3-6"><span class="box" aria-hidden="true"></span><span class="ck-text">Bug spray</span></label></li><li><label><input type="checkbox" data-key="c3-7"><span class="box" aria-hidden="true"></span><span class="ck-text">Bear canister or bags</span></label></li></ul></div><div class="ck-group"><h2 class="group-title">Nice to have</h2><ul class="checklist"><li><label><input type="checkbox" data-key="c4-0"><span class="box" aria-hidden="true"></span><span class="ck-text">Camp chairs</span></label></li><li><label><input type="checkbox" data-key="c4-1"><span class="box" aria-hidden="true"></span><span class="ck-text">Table cloth</span></label></li><li><label><input type="checkbox" data-key="c4-2"><span class="box" aria-hidden="true"></span><span class="ck-text">String lights</span></label></li><li><label><input type="checkbox" data-key="c4-3"><span class="box" aria-hidden="true"></span><span class="ck-text">Cards or a book</span></label></li><li><label><input type="checkbox" data-key="c4-4"><span class="box" aria-hidden="true"></span><span class="ck-text">Firewood</span></label></li><li><label><input type="checkbox" data-key="c4-5"><span class="box" aria-hidden="true"></span><span class="ck-text">Camera</span></label></li></ul></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../southern-california/">Southern California</a></li>
-        <li><a href="../national-parks/">National Parks</a></li>
-        <li><a href="../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../camping-checklist/">Checklist</a></li>
-        <li><a href="../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../assets/js/nav.js"></script>
 <script>
 (function(){
   var boxes=[].slice.call(document.querySelectorAll('.checklist input'));
@@ -129,5 +43,3 @@
   render();
 })();
 </script>
-</body>
-</html>

@@ -1,0 +1,30 @@
+<script>
+(function () {
+  var mapEl = document.getElementById('{{ page.map_id | default: "campground-map" }}');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var MARKERS = [
+{% for m in page.map_markers %}    { name: {{ m.name | jsonify }}, href: {% if m.href contains '#' %}{{ m.href | jsonify }}{% else %}{{ m.href | relative_url | jsonify }}{% endif %}, lat: {{ m.lat }}, lng: {{ m.lng }} }{% unless forloop.last %},{% endunless %}
+{% endfor %}  ];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
+  var bounds = [];
+  MARKERS.forEach(function (m) {
+    L.marker([m.lat, m.lng], { icon: icon, title: m.name })
+      .addTo(map)
+      .bindPopup('<a href="' + m.href + '">' + m.name + '</a>');
+    bounds.push([m.lat, m.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+
+  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
+  // hijack the page scroll while they're scrolling past it.
+  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+})();
+</script>

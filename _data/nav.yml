@@ -1,0 +1,24 @@
+# Single source of truth for the header dropdowns and footer nav columns.
+# Edit a link here once and it updates on every page.
+destinations:
+  - title: Southern California
+    url: /southern-california/
+  - title: National Parks
+    url: /national-parks/
+  - title: Northern California
+    url: /northern-california/
+
+plan:
+  - title: Tips for beginners
+    url: /tips-for-beginners/
+  - title: Booking & reservations
+    url: /booking-guide/
+  - title: Camping checklist
+    footer_title: Checklist
+    url: /camping-checklist/
+  - title: Recommended gear
+    footer_title: Gear
+    url: /recommended-camping-gear/
+  - title: Camping recipes
+    footer_title: Recipes
+    url: /camping-recipes/

@@ -1,72 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sequoia &amp; Kings Canyon · Jeremy's Best Camping</title>
-<meta name="description" content="The largest trees on earth, and a canyon most visitors never drive into.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../../southern-california/">Southern California</a></li>
-<li><a href="../../national-parks/">National Parks</a></li>
-<li><a href="../../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../../camping-checklist/">Camping checklist</a></li>
-<li><a href="../../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">California</p>
-    <h1>Sequoia &amp; Kings Canyon</h1>
-    <p class="lede">The largest trees on earth, and a canyon most visitors never drive into.</p>
-    
-  </div>
-</section><section class="band ">
+---
+layout: default
+title: "Sequoia & Kings Canyon"
+description: "The largest trees on earth, and a canyon most visitors never drive into."
+eyebrow: "California"
+hero_title: "Sequoia & Kings Canyon"
+lede: "The largest trees on earth, and a canyon most visitors never drive into."
+section: destinations
+map_markers:
+  - name: "Lodgepole"
+    href: "#camp-lodgepole"
+    lat: 36.6027
+    lng: -118.7325
+  - name: "Sunset"
+    href: "#camp-sunset"
+    lat: 36.7415
+    lng: -118.9668
+  - name: "Moraine"
+    href: "#camp-moraine"
+    lat: 36.7938
+    lng: -118.6825
+  - name: "Atwell Mill"
+    href: "#camp-atwell-mill"
+    lat: 36.4642
+    lng: -118.6690
+  - name: "Cold Springs"
+    href: "#camp-cold-springs"
+    lat: 36.4522
+    lng: -118.6126
+  - name: "Upper Stony Creek"
+    href: "#camp-upper-stony-creek"
+    lat: 36.6743
+    lng: -118.8283
+  - name: "Princess"
+    href: "#camp-princess"
+    lat: 36.7213
+    lng: -118.955
+  - name: "Hume Lake"
+    href: "#camp-hume-lake"
+    lat: 36.7908
+    lng: -118.9078
+---
+<section class="band ">
   <div class="wrap">
     <h2 class="section-title">Where to camp</h2>
     <p class="section-intro">The park campgrounds below anchor their own small clusters of sites, plus two more up the rugged Mineral King road, a few quieter National Forest options, and a lake with an actual beach.</p>
@@ -204,72 +178,3 @@
     <div class="prose"><p>Entry is $35 per vehicle for seven days and covers both Sequoia and Kings Canyon. Generals Highway, connecting the two halves of the park, is narrow and winding with tight switchbacks; trailers and larger RVs should check current length restrictions before heading up. Tire chains are required in winter storms even for vehicles with four-wheel drive.</p><p>Elevations range from about 1,700 feet in the Kings Canyon foothills to over 6,700 feet at Lodgepole, so pack for both heat and cold depending on where you're headed. Bear activity is high throughout the park; use the food lockers at every site and never leave a cooler out. Cell service is unreliable to nonexistent almost everywhere in the park.</p><p>Mineral King is its own world: a 90-minute, 20-plus-mile drive on a narrow, largely unpaved road off Highway 198 in Three Rivers, closed to RVs and trailers entirely. Neither Atwell Mill nor Cold Springs takes reservations, so arrive early on weekends if you want a site. In spring and early summer, marmots there chew through radiator hoses and engine wiring; a tarp wrapped under the hood is the standard fix.</p></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../../southern-california/">Southern California</a></li>
-        <li><a href="../../national-parks/">National Parks</a></li>
-        <li><a href="../../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../../camping-checklist/">Checklist</a></li>
-        <li><a href="../../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../../assets/js/nav.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script>
-(function () {
-  var mapEl = document.getElementById('campground-map');
-  if (!mapEl || typeof L === 'undefined') return;
-
-  var CAMPGROUNDS = [
-    { name: "Lodgepole", href: "#camp-lodgepole", lat: 36.6027, lng: -118.7325 },
-    { name: "Sunset", href: "#camp-sunset", lat: 36.7415, lng: -118.9668 },
-    { name: "Moraine", href: "#camp-moraine", lat: 36.7938, lng: -118.6825 },
-    { name: "Atwell Mill", href: "#camp-atwell-mill", lat: 36.4642, lng: -118.6690 },
-    { name: "Cold Springs", href: "#camp-cold-springs", lat: 36.4522, lng: -118.6126 },
-    { name: "Upper Stony Creek", href: "#camp-upper-stony-creek", lat: 36.6743, lng: -118.8283 },
-    { name: "Princess", href: "#camp-princess", lat: 36.7213, lng: -118.955 },
-    { name: "Hume Lake", href: "#camp-hume-lake", lat: 36.7908, lng: -118.9078 }
-  ];
-
-  var map = L.map(mapEl, { scrollWheelZoom: false });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 17,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  var icon = L.divIcon({ className: 'map-pin', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8] });
-  var bounds = [];
-  CAMPGROUNDS.forEach(function (camp) {
-    L.marker([camp.lat, camp.lng], { icon: icon, title: camp.name })
-      .addTo(map)
-      .bindPopup('<a href="' + camp.href + '">' + camp.name + '</a>');
-    bounds.push([camp.lat, camp.lng]);
-  });
-  map.fitBounds(bounds, { padding: [28, 28] });
-
-  // Scroll-zoom stays off until the visitor clicks in, so the map doesn't
-  // hijack the page scroll while they're scrolling past it.
-  mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
-})();
-</script>
-
-</body>
-</html>

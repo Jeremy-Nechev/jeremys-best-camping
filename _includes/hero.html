@@ -1,0 +1,18 @@
+<section class="hero">
+  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+<g fill="none" stroke="currentColor" stroke-width="1">
+<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
+<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
+<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
+<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
+<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
+<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
+<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
+</g></svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.hero_title }}</h1>
+    <p class="lede">{{ page.lede }}</p>
+    {% if page.hero_actions %}<div class="hero-actions">{% for action in page.hero_actions %}<a class="btn{% if action.quiet %} btn-quiet{% endif %}" href="{{ action.url | relative_url }}">{{ action.label }}</a> {% endfor %}</div>{% endif %}
+  </div>
+</section>

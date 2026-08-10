@@ -1,75 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Northern California · Jeremy's Best Camping</title>
-<meta name="description" content="Lake Tahoe, Mammoth Lakes, Mono Lake & June Lake, Big Sur, and the Southern Sierra sequoia groves, the destinations that don't fit anywhere else.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="wordmark" href="../">
-      <span class="wordmark-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 3 L21 20 H3 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11 L16.5 20 H7.5 Z" fill="currentColor"/></svg>
-      </span>
-      <span class="wordmark-text">Jeremy's<br><em>Best Camping</em></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul class="nav-list">
-<li class="nav-item has-menu is-active">
-<button class="nav-link" aria-expanded="false">Destinations<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../southern-california/">Southern California</a></li>
-<li><a href="../national-parks/">National Parks</a></li>
-<li><a href="../northern-california/">Northern California</a></li>
-</ul></li>
-<li class="nav-item has-menu">
-<button class="nav-link" aria-expanded="false">Plan a trip<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-<ul class="submenu">
-<li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-<li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-<li><a href="../camping-checklist/">Camping checklist</a></li>
-<li><a href="../recommended-camping-gear/">Recommended gear</a></li>
-<li><a href="../camping-recipes/">Camping recipes</a></li>
-</ul></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
-  <svg class="contour" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-<g fill="none" stroke="currentColor" stroke-width="1">
-<path d="M-40 420 C 180 380, 300 300, 520 320 S 900 420, 1240 340"/>
-<path d="M-40 370 C 190 328, 320 252, 530 272 S 900 372, 1240 292"/>
-<path d="M-40 320 C 200 276, 340 204, 540 224 S 900 324, 1240 244"/>
-<path d="M-40 270 C 210 224, 360 156, 550 176 S 900 276, 1240 196"/>
-<path d="M-40 220 C 220 172, 380 108, 560 128 S 900 228, 1240 148"/>
-<path d="M-40 170 C 230 120, 400  60, 570  80 S 900 180, 1240 100"/>
-<path d="M-40 120 C 240  68, 420  12, 580  32 S 900 132, 1240  52"/>
-</g></svg>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Region</p>
-    <h1>Northern California</h1>
-    <p class="lede">Six Sierra Nevada and Central Coast destinations that don't fit next to Southern California or the national parks. Each has its own full guide, this page is the jumping-off point.</p>
-
-  </div>
-</section><section class="band ">
+---
+layout: default
+title: "Northern California"
+description: "Lake Tahoe, Mammoth Lakes, Mono Lake & June Lake, Big Sur, and the Southern Sierra sequoia groves, the destinations that don't fit anywhere else."
+eyebrow: "Region"
+hero_title: "Northern California"
+lede: "Six Sierra Nevada and Central Coast destinations that don't fit next to Southern California or the national parks. Each has its own full guide, this page is the jumping-off point."
+section: destinations
+---
+<section class="band ">
   <div class="wrap">
     <h2 class="section-title">Regions</h2>
 
-    <div class="grid grid-3"><a class="card" href="../lake-tahoe/">
+    <div class="grid grid-3"><a class="card" href="{{ site.baseurl }}/lake-tahoe/">
   <div class="card-body">
     <p class="kicker">Sierra Nevada</p>
     <h3>Lake Tahoe</h3>
@@ -78,7 +20,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="../mammoth-lakes/">
+<a class="card" href="{{ site.baseurl }}/mammoth-lakes/">
   <div class="card-body">
     <p class="kicker">Eastern Sierra</p>
     <h3>Mammoth Lakes</h3>
@@ -87,7 +29,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="../mono-lake-june-lake/">
+<a class="card" href="{{ site.baseurl }}/mono-lake-june-lake/">
   <div class="card-body">
     <p class="kicker">Eastern Sierra</p>
     <h3>Mono Lake &amp; June Lake</h3>
@@ -96,7 +38,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="../big-sur/">
+<a class="card" href="{{ site.baseurl }}/big-sur/">
   <div class="card-body">
     <p class="kicker">Central Coast</p>
     <h3>Big Sur</h3>
@@ -105,7 +47,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="../trail-of-100-giants/">
+<a class="card" href="{{ site.baseurl }}/trail-of-100-giants/">
   <div class="card-body">
     <p class="kicker">Southern Sierra</p>
     <h3>Trail of 100 Giants &amp; Ponderosa</h3>
@@ -114,7 +56,7 @@
   </div>
   <span class="card-go" aria-hidden="true">&rarr;</span>
 </a>
-<a class="card" href="../mountain-home-state-forest/">
+<a class="card" href="{{ site.baseurl }}/mountain-home-state-forest/">
   <div class="card-body">
     <p class="kicker">Southern Sierra</p>
     <h3>Mountain Home State Forest</h3>
@@ -131,34 +73,3 @@
     <div class="prose"><p>Lake Tahoe is the big-lake trip: granite shoreline, cold clear water, and enough campgrounds around the basin to base out of for a week. It's the pick if you want a real lake and a town nearby for a night off from cooking.</p><p>Mammoth Lakes is alpine basin camping at altitude, with more lakes within a few minutes of each other than anywhere else on this list. Mono Lake &amp; June Lake sits right next door and shares the same drive, but trades a couple of the highest peaks for tufa towers and a quieter lake loop, a good add-on or a calmer alternative if Mammoth is booked out.</p><p>Big Sur is the odd one out geographically, redwood canyons on one side of Highway 1 and cold Pacific surf on the other, but it shares the same booking rhythm as the Sierra sites here: reserve the day the window opens or you won't get in.</p><p>Trail of 100 Giants &amp; Ponderosa and Mountain Home State Forest are the odd ones out in a different way, giant sequoias in the Southern Sierra foothills above Springville, closer to Los Angeles than any of the other five destinations here. Almost everything is first-come rather than reserved, so they're a good fallback when Lake Tahoe or Mammoth Lakes are booked solid.</p><p>Lake Tahoe, Mammoth Lakes, Mono Lake &amp; June Lake, and Big Sur all run on the same 6 month reservation window, so treat those four as a single list to check on release day. Trail of 100 Giants and Mountain Home State Forest don't need that kind of planning, just an early arrival.</p></div>
   </div>
 </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <p class="footer-name">Jeremy's Best Camping</p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <div><h3>Destinations</h3><ul>
-        <li><a href="../southern-california/">Southern California</a></li>
-        <li><a href="../national-parks/">National Parks</a></li>
-        <li><a href="../northern-california/">Northern California</a></li>
-      </ul></div>
-      <div><h3>Plan a trip</h3><ul>
-        <li><a href="../tips-for-beginners/">Tips for beginners</a></li>
-        <li><a href="../booking-guide/">Booking &amp; reservations</a></li>
-        <li><a href="../camping-checklist/">Checklist</a></li>
-        <li><a href="../recommended-camping-gear/">Gear</a></li>
-        <li><a href="../camping-recipes/">Recipes</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="wrap footer-base">
-    <p>&copy; 2026 Jeremy's Best Camping</p>
-  </div>
-</footer>
-
-<script src="../assets/js/nav.js"></script>
-
-</body>
-</html>
