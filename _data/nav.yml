@@ -16,9 +16,3 @@ plan:
   - title: Camping checklist
     footer_title: Checklist
     url: /camping-checklist/
-  - title: Recommended gear
-    footer_title: Gear
-    url: /recommended-camping-gear/
-  - title: Camping recipes
-    footer_title: Recipes
-    url: /camping-recipes/
