@@ -11,8 +11,6 @@ destinations:
 plan:
   - title: Tips for beginners
     url: /tips-for-beginners/
-  - title: Booking & reservations
-    url: /booking-guide/
   - title: Camping checklist
     footer_title: Checklist
     url: /camping-checklist/
